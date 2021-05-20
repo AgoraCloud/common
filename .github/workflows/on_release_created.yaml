@@ -1,4 +1,4 @@
-name: main_versioned_push
+name: on_release_created
 on:
   release:
     types: [created]
