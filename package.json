@@ -4,6 +4,9 @@
   "description": "An NPM package that houses shared assets between AgoraCloud's server and UI",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
