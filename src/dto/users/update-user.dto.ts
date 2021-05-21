@@ -11,6 +11,10 @@ export class UpdateUserDto {
   @IsNotEmpty()
   @MinLength(4)
   readonly fullName!: string;
+
+  constructor(partial: Partial<UpdateUserDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -34,4 +38,8 @@ export class AdminUpdateUserDto {
   @IsBoolean()
   @IsOptional()
   readonly isVerified?: boolean;
+
+  constructor(partial: Partial<AdminUpdateUserDto>) {
+    Object.assign(this, partial);
+  }
 }

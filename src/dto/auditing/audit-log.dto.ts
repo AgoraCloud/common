@@ -61,4 +61,8 @@ export class AuditLogDto {
   @Expose()
   @Type(() => WorkspaceDto)
   workspace?: WorkspaceDto;
+
+  constructor(partial: Partial<AuditLogDto>) {
+    Object.assign(this, partial);
+  }
 }

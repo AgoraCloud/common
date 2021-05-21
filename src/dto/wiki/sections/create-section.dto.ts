@@ -5,4 +5,8 @@ export class CreateWikiSectionDto {
   @IsNotEmpty()
   @MinLength(1)
   readonly name!: string;
+
+  constructor(partial: Partial<CreateWikiSectionDto>) {
+    Object.assign(this, partial);
+  }
 }

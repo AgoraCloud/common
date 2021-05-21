@@ -1,18 +1,24 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Expose } from 'class-transformer';
+import { Exclude, Expose } from 'class-transformer';
 
 /**
  * A DTO with the id
  */
+@Exclude()
 class IdDto {
   @Expose({ name: '_id' })
   readonly id!: string;
+
+  constructor(partial: Partial<IdDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 /**
  * A DTO with the id, createdAt and updatedAt fields
  */
 // tslint:disable-next-line: max-classes-per-file
+@Exclude()
 class IdWithTimestampDto implements IdDto {
   @Expose({ name: '_id' })
   readonly id!: string;
@@ -22,6 +28,10 @@ class IdWithTimestampDto implements IdDto {
 
   @Expose()
   readonly updatedAt!: Date;
+
+  constructor(partial: Partial<IdWithTimestampDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 /**
@@ -29,13 +39,21 @@ class IdWithTimestampDto implements IdDto {
  * thrown
  */
 // tslint:disable-next-line: max-classes-per-file
+@Exclude()
 class ExceptionDto {
+  @Expose()
   statusCode!: number;
 
+  @Expose()
   @ApiProperty({ oneOf: [{ type: 'string' }, { type: '[string]' }] })
   message!: string | string[];
 
+  @Expose()
   error!: string;
+
+  constructor(partial: Partial<ExceptionDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 export { IdDto, IdWithTimestampDto, ExceptionDto };

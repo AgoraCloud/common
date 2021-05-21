@@ -5,4 +5,8 @@ export class AddWorkspaceUserDto {
   @IsNotEmpty()
   @IsMongoId()
   readonly id!: string;
+
+  constructor(partial: Partial<AddWorkspaceUserDto>) {
+    Object.assign(this, partial);
+  }
 }

@@ -24,6 +24,10 @@ export class UpdateWorkspaceResourcesDto {
   @IsInt()
   @IsOptional()
   readonly storageCount?: number;
+
+  constructor(partial: Partial<UpdateWorkspaceResourcesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -32,6 +36,10 @@ export class UpdateWorkspacePropertiesDto {
   @ValidateNested()
   @Type(() => UpdateWorkspaceResourcesDto)
   readonly resources?: UpdateWorkspaceResourcesDto;
+
+  constructor(partial: Partial<UpdateWorkspacePropertiesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -46,4 +54,8 @@ export class UpdateWorkspaceDto {
   @ValidateNested()
   @Type(() => UpdateWorkspacePropertiesDto)
   readonly properties?: UpdateWorkspacePropertiesDto;
+
+  constructor(partial: Partial<UpdateWorkspaceDto>) {
+    Object.assign(this, partial);
+  }
 }

@@ -2,7 +2,7 @@
   "name": "@agoracloud/common",
   "version": "1.0.0",
   "description": "An NPM package that houses shared assets between AgoraCloud's server and UI",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -10,8 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "AgoraCloud",
+  "license": "MIT",
   "devDependencies": {
     "prettier": "^2.3.0",
     "tslint": "^6.1.3",

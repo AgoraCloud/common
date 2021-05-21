@@ -13,4 +13,8 @@ export class CreateUserDto {
   @IsNotEmpty()
   @MinLength(8)
   readonly password!: string;
+
+  constructor(partial: Partial<CreateUserDto>) {
+    Object.assign(this, partial);
+  }
 }

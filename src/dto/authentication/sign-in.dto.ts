@@ -8,4 +8,8 @@ export class SignInDto {
   @IsNotEmpty()
   @MinLength(8)
   readonly password!: string;
+
+  constructor(partial: Partial<SignInDto>) {
+    Object.assign(this, partial);
+  }
 }

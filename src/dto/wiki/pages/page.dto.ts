@@ -23,4 +23,9 @@ export class WikiPageDto extends IdWithTimestampDto {
   @Expose()
   @Type(() => WikiSectionDto)
   readonly section!: WikiSectionDto;
+
+  constructor(partial: Partial<WikiPageDto>) {
+    super(partial);
+    Object.assign(this, partial);
+  }
 }

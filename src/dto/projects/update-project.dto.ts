@@ -12,4 +12,8 @@ export class UpdateProjectDto {
   @MinLength(1)
   @IsOptional()
   readonly description?: string;
+
+  constructor(partial: Partial<UpdateProjectDto>) {
+    Object.assign(this, partial);
+  }
 }

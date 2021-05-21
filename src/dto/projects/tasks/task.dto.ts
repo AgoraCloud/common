@@ -28,4 +28,9 @@ export class ProjectTaskDto extends IdWithTimestampDto {
   @Expose()
   @Type(() => ProjectLaneDto)
   readonly lane!: ProjectLaneDto;
+
+  constructor(partial: Partial<ProjectTaskDto>) {
+    super(partial);
+    Object.assign(this, partial);
+  }
 }

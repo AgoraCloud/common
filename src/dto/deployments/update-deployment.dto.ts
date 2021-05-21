@@ -20,6 +20,10 @@ export class UpdateDeploymentResourcesDto {
   @IsInt()
   @IsOptional()
   readonly memoryCount?: number;
+
+  constructor(partial: Partial<UpdateDeploymentResourcesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -32,6 +36,10 @@ export class UpdateDeploymentPropertiesDto {
   @ValidateNested()
   @Type(() => UpdateDeploymentResourcesDto)
   readonly resources?: UpdateDeploymentResourcesDto;
+
+  constructor(partial: Partial<UpdateDeploymentPropertiesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -46,4 +54,8 @@ export class UpdateDeploymentDto {
   @ValidateNested()
   @Type(() => UpdateDeploymentPropertiesDto)
   readonly properties?: UpdateDeploymentPropertiesDto;
+
+  constructor(partial: Partial<UpdateDeploymentDto>) {
+    Object.assign(this, partial);
+  }
 }

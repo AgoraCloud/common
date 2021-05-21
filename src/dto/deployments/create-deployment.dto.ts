@@ -24,6 +24,10 @@ export class CreateDeploymentImageDto {
   @IsString()
   @IsNotEmpty()
   readonly version!: string;
+
+  constructor(partial: Partial<CreateDeploymentImageDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -40,6 +44,10 @@ export class CreateDeploymentResourcesDto {
   @IsInt()
   @IsOptional()
   readonly storageCount?: number;
+
+  constructor(partial: Partial<CreateDeploymentResourcesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -63,6 +71,10 @@ export class CreateDeploymentPropertiesDto {
   @IsNotEmpty()
   @MinLength(8)
   sudoPassword!: string;
+
+  constructor(partial: Partial<CreateDeploymentPropertiesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -76,4 +88,8 @@ export class CreateDeploymentDto {
   @ValidateNested()
   @Type(() => CreateDeploymentPropertiesDto)
   readonly properties!: CreateDeploymentPropertiesDto;
+
+  constructor(partial: Partial<CreateDeploymentDto>) {
+    Object.assign(this, partial);
+  }
 }

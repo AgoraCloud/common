@@ -11,4 +11,8 @@ export class UpdateWikiPageDto {
   @IsNotEmpty()
   @IsOptional()
   readonly body!: string;
+
+  constructor(partial: Partial<UpdateWikiPageDto>) {
+    Object.assign(this, partial);
+  }
 }

@@ -5,4 +5,8 @@ export class CreateProjectLaneDto {
   @IsNotEmpty()
   @MinLength(1)
   readonly name!: string;
+
+  constructor(partial: Partial<CreateProjectLaneDto>) {
+    Object.assign(this, partial);
+  }
 }

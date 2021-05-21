@@ -35,6 +35,10 @@ export class DeploymentResourcesDto {
 
   @Expose()
   readonly storageCount?: number;
+
+  constructor(partial: Partial<DeploymentResourcesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -45,6 +49,10 @@ export class DeploymentImageDto {
 
   @Expose()
   readonly version!: string;
+
+  constructor(partial: Partial<DeploymentImageDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -60,6 +68,10 @@ export class DeploymentPropertiesDto {
   @Expose()
   @Type(() => DeploymentResourcesDto)
   readonly resources!: DeploymentResourcesDto;
+
+  constructor(partial: Partial<DeploymentPropertiesDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -85,4 +97,9 @@ export class DeploymentDto extends IdWithTimestampDto {
   @Expose()
   @Type(() => UserDto)
   readonly user!: UserDto;
+
+  constructor(partial: Partial<DeploymentDto>) {
+    super(partial);
+    Object.assign(this, partial);
+  }
 }

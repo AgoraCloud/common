@@ -15,4 +15,8 @@ export class UpdateUserPermissionsDto {
   @IsNotEmpty({ each: true })
   @IsIn(WorkspaceActionsDto, { each: true })
   permissions!: ActionDto[];
+
+  constructor(partial: Partial<UpdateUserPermissionsDto>) {
+    Object.assign(this, partial);
+  }
 }

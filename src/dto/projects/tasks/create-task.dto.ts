@@ -11,4 +11,8 @@ export class CreateProjectTaskDto {
   @MinLength(1)
   @IsOptional()
   readonly description?: string;
+
+  constructor(partial: Partial<CreateProjectTaskDto>) {
+    Object.assign(this, partial);
+  }
 }

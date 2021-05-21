@@ -18,4 +18,9 @@ export class ProjectDto extends IdWithTimestampDto {
   @Expose()
   @Type(() => WorkspaceDto)
   readonly workspace!: WorkspaceDto;
+
+  constructor(partial: Partial<ProjectDto>) {
+    super(partial);
+    Object.assign(this, partial);
+  }
 }

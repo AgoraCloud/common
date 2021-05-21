@@ -8,4 +8,8 @@ export class ChangePasswordDto {
 
   @IsMongoId()
   readonly token!: string;
+
+  constructor(partial: Partial<ChangePasswordDto>) {
+    Object.assign(this, partial);
+  }
 }

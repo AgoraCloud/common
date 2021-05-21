@@ -9,4 +9,8 @@ export class CreateWikiPageDto {
   @IsString()
   @IsNotEmpty()
   readonly body!: string;
+
+  constructor(partial: Partial<CreateWikiPageDto>) {
+    Object.assign(this, partial);
+  }
 }

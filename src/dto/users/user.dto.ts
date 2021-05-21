@@ -8,6 +8,11 @@ export class UserDto extends IdDto {
 
   @Expose()
   readonly email!: string;
+
+  constructor(partial: Partial<UserDto>) {
+    super(partial);
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -18,4 +23,9 @@ export class AdminUserDto extends UserDto {
 
   @Expose()
   readonly isVerified!: boolean;
+
+  constructor(partial: Partial<AdminUserDto>) {
+    super(partial);
+    Object.assign(this, partial);
+  }
 }

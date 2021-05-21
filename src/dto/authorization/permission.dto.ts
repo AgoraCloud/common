@@ -1,3 +1,4 @@
+import { mapToJson } from './../../transformers/map-to-json.transformer';
 import { Exclude, Expose, Transform, Type } from 'class-transformer';
 import { UserDto } from '../users';
 
@@ -100,6 +101,10 @@ export class RolesAndPermissionsDto {
 
   @Expose()
   permissions!: ActionDto[];
+
+  constructor(partial: Partial<RolesAndPermissionsDto>) {
+    Object.assign(this, partial);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -113,17 +118,9 @@ export class PermissionDto extends RolesAndPermissionsDto {
   @Type(() => Object)
   @Transform((value: any) => mapToJson(value))
   workspaces!: Map<string, RolesAndPermissionsDto>;
-}
 
-/**
- * Converts a map to JSON
- * @param map the map to convert
- * @returns json map
- */
-const mapToJson = (map: Map<string, RolesAndPermissionsDto>) => {
-  const obj: Record<string, RolesAndPermissionsDto> = {};
-  map.forEach((value: RolesAndPermissionsDto, key: string) => {
-    obj[key] = value;
-  });
-  return obj;
-};
+  constructor(partial: Partial<PermissionDto>) {
+    super(partial);
+    Object.assign(this, partial);
+  }
+}
