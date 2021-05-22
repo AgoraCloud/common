@@ -45,17 +45,7 @@ class ExceptionDto {
   statusCode!: number;
 
   @Expose()
-  @ApiProperty({
-    oneOf: [
-      { type: 'string' },
-      {
-        type: 'array',
-        items: {
-          type: 'string',
-        },
-      },
-    ],
-  })
+  @ApiProperty({ type: () => String })
   message!: string | string[];
 
   @Expose()
