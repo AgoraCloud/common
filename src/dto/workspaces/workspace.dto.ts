@@ -12,10 +12,6 @@ export class WorkspaceResourcesDto {
 
   @Expose()
   readonly storageCount?: number;
-
-  constructor(partial: Partial<WorkspaceResourcesDto>) {
-    Object.assign(this, partial);
-  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -24,10 +20,6 @@ export class WorkspacePropertiesDto {
   @Expose()
   @Type(() => WorkspaceResourcesDto)
   readonly resources?: WorkspaceResourcesDto;
-
-  constructor(partial: Partial<WorkspacePropertiesDto>) {
-    Object.assign(this, partial);
-  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
@@ -43,9 +35,4 @@ export class WorkspaceDto extends IdWithTimestampDto {
   @Expose()
   @Type(() => UserDto)
   readonly users!: UserDto[];
-
-  constructor(partial: Partial<WorkspaceDto>) {
-    super(partial);
-    Object.assign(this, partial);
-  }
 }
