@@ -27,7 +27,7 @@ npm i @agoracloud/common@1.0.0
 3. Import any asset as needed
 
 ```typescript
-import { userDto } from '@agoracloud/common';
+import { UserDto } from '@agoracloud/common';
 ```
 
 ## Development
