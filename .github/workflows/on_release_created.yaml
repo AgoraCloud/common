@@ -19,8 +19,6 @@ jobs:
           scope: '@agoracloud'
       - name: Install Required Packages
         run: npm install
-      - name: Build the Package
-        run: npm run build
       - name: Publish the NPM Package
         run: npm publish
         env:
