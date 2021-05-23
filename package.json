@@ -18,7 +18,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://https://github.com/AgoraCloud/common.git"
+    "url": "git://github.com/AgoraCloud/common.git"
   },
   "devDependencies": {
     "prettier": "^2.3.0",
