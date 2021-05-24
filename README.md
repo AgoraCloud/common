@@ -9,22 +9,13 @@ This repository contains an NPM package that houses shared assets between AgoraC
 
 ## Download and Setup
 
-1. Create a `.npmrc` file in the root of your project with the following content:
-
-> Make sure you replace `TOKEN` with a generated personal access token that has the `read:packages` scope
+1. Install the package
 
 ```bash
-//npm.pkg.github.com/:_authToken=TOKEN
-@agoracloud:registry=https://npm.pkg.github.com
+npm i @agoracloud/common
 ```
 
-2. Install the package
-
-```bash
-npm i @agoracloud/common@1.0.0
-```
-
-3. Import any asset as needed
+2. Import any asset as needed
 
 ```typescript
 import { UserDto } from '@agoracloud/common';
