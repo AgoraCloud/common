@@ -62,7 +62,7 @@ export const WorkspaceActionsDto: ActionDto[] = [
   ActionDto.DeleteWorkspace,
 ];
 
-export const InWorkspaceActions: ActionDto[] = [
+export const InWorkspaceActionsDto: ActionDto[] = [
   ActionDto.CreateDeployment,
   ActionDto.ReadDeployment,
   ActionDto.ProxyDeployment,
