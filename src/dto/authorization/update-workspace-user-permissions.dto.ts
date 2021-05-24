@@ -1,5 +1,5 @@
 import { IsArrayLength } from '../../validators/is-array-length.validator';
-import { RoleDto, ActionDto, InWorkspaceActionsDto } from './permission.dto';
+import { RoleDto, ActionDto, IN_WORKSPACE_ACTIONS_DTO } from './permission.dto';
 import { IsIn, IsNotEmpty, IsString, Validate } from 'class-validator';
 
 export class UpdateWorkspaceUserPermissionsDto {
@@ -13,7 +13,7 @@ export class UpdateWorkspaceUserPermissionsDto {
 
   @IsString({ each: true })
   @IsNotEmpty({ each: true })
-  @IsIn(InWorkspaceActionsDto, { each: true })
+  @IsIn(IN_WORKSPACE_ACTIONS_DTO, { each: true })
   permissions!: ActionDto[];
 
   constructor(partial: Partial<UpdateWorkspaceUserPermissionsDto>) {

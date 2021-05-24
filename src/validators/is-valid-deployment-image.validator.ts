@@ -1,5 +1,5 @@
 import {
-  deploymentImages,
+  DEPLOYMENT_IMAGES_DTO,
   DeploymentImageDto,
 } from '../dto/deployments/deployment.dto';
 import {
@@ -17,7 +17,7 @@ export class IsValidDeploymentImage implements ValidatorConstraintInterface {
       !!image &&
       !!image.type &&
       !!image.version &&
-      deploymentImages.findIndex(
+      DEPLOYMENT_IMAGES_DTO.findIndex(
         (i: DeploymentImageDto) =>
           i.type === image.type && i.version === image.version,
       ) !== -1

@@ -55,14 +55,14 @@ export enum ActionDto {
   DeleteProjectTask = 'project_tasks:delete',
 }
 
-export const WorkspaceActionsDto: ActionDto[] = [
+export const WORKSPACE_ACTIONS_DTO: ActionDto[] = [
   ActionDto.CreateWorkspace,
   ActionDto.ReadWorkspace,
   ActionDto.UpdateWorkspace,
   ActionDto.DeleteWorkspace,
 ];
 
-export const InWorkspaceActionsDto: ActionDto[] = [
+export const IN_WORKSPACE_ACTIONS_DTO: ActionDto[] = [
   ActionDto.CreateDeployment,
   ActionDto.ReadDeployment,
   ActionDto.ProxyDeployment,

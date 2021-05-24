@@ -17,7 +17,7 @@ export enum DeploymentTypeDto {
   VSCode = 'VSCODE',
 }
 
-export const deploymentImages: DeploymentImageDto[] = [
+export const DEPLOYMENT_IMAGES_DTO: DeploymentImageDto[] = [
   // VSCode Deployments
   { type: DeploymentTypeDto.VSCode, version: '3.9.3' },
   { type: DeploymentTypeDto.VSCode, version: '3.9.2' },
