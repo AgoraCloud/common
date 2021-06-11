@@ -1,10 +1,8 @@
-import { IsMongoId, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail } from 'class-validator';
 
 export class AddWorkspaceUserDto {
-  @IsString()
-  @IsNotEmpty()
-  @IsMongoId()
-  readonly id!: string;
+  @IsEmail()
+  readonly email!: string;
 
   constructor(partial: Partial<AddWorkspaceUserDto>) {
     Object.assign(this, partial);
