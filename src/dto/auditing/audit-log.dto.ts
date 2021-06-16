@@ -29,6 +29,7 @@ export enum AuditResourceDto {
   ProjectTask = 'PROJECT_TASK',
   WikiSection = 'WIKI_SECTION',
   WikiPage = 'WIKI_PAGE',
+  Shortcut = 'SHORTCUT',
 }
 
 @Exclude()
