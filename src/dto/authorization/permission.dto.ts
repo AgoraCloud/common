@@ -53,6 +53,11 @@ export enum ActionDto {
   ReadProjectTask = 'project_tasks:read',
   UpdateProjectTask = 'project_tasks:update',
   DeleteProjectTask = 'project_tasks:delete',
+  // Shortcut Actions
+  CreateShortcut = 'shortcuts:create',
+  ReadShortcut = 'shortcuts:read',
+  UpdateShortcut = 'shortcuts:update',
+  DeleteShortcut = 'shortcuts:Delete',
 }
 
 export const WORKSPACE_ACTIONS_DTO: ActionDto[] = [
@@ -92,6 +97,10 @@ export const IN_WORKSPACE_ACTIONS_DTO: ActionDto[] = [
   ActionDto.ReadProjectTask,
   ActionDto.UpdateProjectTask,
   ActionDto.DeleteProjectTask,
+  ActionDto.CreateShortcut,
+  ActionDto.ReadShortcut,
+  ActionDto.UpdateShortcut,
+  ActionDto.DeleteShortcut,
 ];
 
 @Exclude()

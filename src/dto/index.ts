@@ -8,3 +8,4 @@ export * from './projects';
 export * from './users';
 export * from './wiki';
 export * from './workspaces';
+export * from './shortcuts';
