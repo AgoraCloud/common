@@ -1,8 +1,9 @@
 import { WorkspaceDto } from './../workspaces/workspace.dto';
 import { UserDto } from './../users/user.dto';
-import { Expose, Type } from 'class-transformer';
+import { Exclude, Expose, Type } from 'class-transformer';
 import { IdWithTimestampDto } from '../base.dto';
 
+@Exclude()
 export class ShortcutDto extends IdWithTimestampDto {
   @Expose()
   readonly title!: string;
