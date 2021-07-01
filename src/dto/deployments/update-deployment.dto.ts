@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
   IsString,
@@ -14,11 +15,13 @@ export class UpdateDeploymentResourcesDto {
   @Min(1)
   @IsInt()
   @IsOptional()
+  @ApiProperty({ minimum: 1, required: false })
   readonly cpuCount?: number;
 
   @Min(2)
   @IsInt()
   @IsOptional()
+  @ApiProperty({ minimum: 2, required: false })
   readonly memoryCount?: number;
 
   constructor(partial: Partial<UpdateDeploymentResourcesDto>) {
@@ -30,10 +33,12 @@ export class UpdateDeploymentResourcesDto {
 export class UpdateDeploymentPropertiesDto {
   @IsBoolean()
   @IsOptional()
+  @ApiProperty({ required: false })
   readonly isFavorite?: boolean;
 
   @IsOptional()
   @ValidateNested()
+  @ApiProperty({ required: false })
   @Type(() => UpdateDeploymentResourcesDto)
   readonly resources?: UpdateDeploymentResourcesDto;
 
@@ -48,10 +53,12 @@ export class UpdateDeploymentDto {
   @IsNotEmpty()
   @MinLength(4)
   @IsOptional()
+  @ApiProperty({ minLength: 4, required: false })
   readonly name?: string;
 
   @IsOptional()
   @ValidateNested()
+  @ApiProperty({ required: false })
   @Type(() => UpdateDeploymentPropertiesDto)
   readonly properties?: UpdateDeploymentPropertiesDto;
 

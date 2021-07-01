@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { mapToJson } from './../../transformers/map-to-json.transformer';
 import { Exclude, Expose, Transform, Type } from 'class-transformer';
 import { UserDto } from '../users';
@@ -106,9 +107,11 @@ export const IN_WORKSPACE_ACTIONS_DTO: ActionDto[] = [
 @Exclude()
 export class RolesAndPermissionsDto {
   @Expose()
+  @ApiProperty({ enum: RoleDto, type: [RoleDto] })
   roles!: RoleDto[];
 
   @Expose()
+  @ApiProperty({ enum: ActionDto, type: [ActionDto] })
   permissions!: ActionDto[];
 
   constructor(partial: Partial<RolesAndPermissionsDto>) {
@@ -120,11 +123,13 @@ export class RolesAndPermissionsDto {
 @Exclude()
 export class PermissionDto extends RolesAndPermissionsDto {
   @Expose()
+  @ApiProperty()
   @Type(() => UserDto)
   readonly user!: UserDto;
 
   @Expose()
   @Type(() => Object)
+  @ApiProperty()
   @Transform((value: any) => mapToJson(value))
   workspaces!: Map<string, RolesAndPermissionsDto>;
 

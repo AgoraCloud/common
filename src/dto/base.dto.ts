@@ -6,6 +6,7 @@ import { Exclude, Expose } from 'class-transformer';
  */
 @Exclude()
 class IdDto {
+  @ApiProperty()
   @Expose({ name: '_id' })
   readonly id!: string;
 
@@ -20,13 +21,16 @@ class IdDto {
 // tslint:disable-next-line: max-classes-per-file
 @Exclude()
 class IdWithTimestampDto implements IdDto {
+  @ApiProperty()
   @Expose({ name: '_id' })
   readonly id!: string;
 
   @Expose()
+  @ApiProperty()
   readonly createdAt!: Date;
 
   @Expose()
+  @ApiProperty()
   readonly updatedAt!: Date;
 
   constructor(partial: Partial<IdWithTimestampDto>) {
@@ -42,6 +46,7 @@ class IdWithTimestampDto implements IdDto {
 @Exclude()
 class ExceptionDto {
   @Expose()
+  @ApiProperty()
   statusCode!: number;
 
   @Expose()
@@ -49,6 +54,7 @@ class ExceptionDto {
   message!: string | string[];
 
   @Expose()
+  @ApiProperty()
   error!: string;
 
   constructor(partial: Partial<ExceptionDto>) {

@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { UserDto } from '../users';
 import { Exclude, Expose, Type } from 'class-transformer';
 import { WorkspaceDto } from '../workspaces';
@@ -35,31 +36,40 @@ export enum AuditResourceDto {
 @Exclude()
 export class AuditLogDto {
   @Expose()
+  @ApiProperty()
   isSuccessful!: boolean;
 
   @Expose()
+  @ApiProperty()
   failureReason?: string;
 
   @Expose()
+  @ApiProperty({ enum: AuditActionDto })
   action!: AuditActionDto;
 
   @Expose()
+  @ApiProperty({ enum: AuditResourceDto })
   resource!: AuditResourceDto;
 
+  @ApiProperty()
   @Expose({ name: 'createdAt' })
   date!: Date;
 
   @Expose()
+  @ApiProperty()
   userAgent!: string;
 
   @Expose()
+  @ApiProperty()
   ip!: string;
 
   @Expose()
+  @ApiProperty()
   @Type(() => UserDto)
   user!: UserDto;
 
   @Expose()
+  @ApiProperty()
   @Type(() => WorkspaceDto)
   workspace?: WorkspaceDto;
 

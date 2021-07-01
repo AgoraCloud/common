@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
   IsMongoId,
@@ -13,6 +14,7 @@ export class UpdateProjectTaskLaneDto {
   @IsMongoId()
   @IsNotEmpty()
   @IsOptional()
+  @ApiProperty({ required: false })
   readonly id?: string;
 
   constructor(partial: Partial<UpdateProjectTaskLaneDto>) {
@@ -26,16 +28,19 @@ export class UpdateProjectTaskDto {
   @IsNotEmpty()
   @MinLength(1)
   @IsOptional()
+  @ApiProperty({ minLength: 1, required: false })
   readonly title?: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(1)
   @IsOptional()
+  @ApiProperty({ minLength: 1, required: false })
   readonly description?: string;
 
   @IsOptional()
   @ValidateNested()
+  @ApiProperty({ required: false })
   @Type(() => UpdateProjectTaskLaneDto)
   readonly lane?: UpdateProjectTaskLaneDto;
 
