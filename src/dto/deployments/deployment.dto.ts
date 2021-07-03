@@ -18,13 +18,36 @@ export enum DeploymentTypeDto {
   VSCode = 'VSCODE',
 }
 
+export enum DeploymentVersionDto {
+  VSCode_3_10_2 = '3.10.2',
+  VSCode_3_9_3 = '3.9.3',
+  VSCode_3_9_2 = '3.9.2',
+  VSCode_3_9_1 = '3.9.1',
+  VSCode_3_9_0 = '3.9.0',
+}
+
 export const DEPLOYMENT_IMAGES_DTO: DeploymentImageDto[] = [
   // VSCode Deployments
-  { type: DeploymentTypeDto.VSCode, version: '3.10.2' },
-  { type: DeploymentTypeDto.VSCode, version: '3.9.3' },
-  { type: DeploymentTypeDto.VSCode, version: '3.9.2' },
-  { type: DeploymentTypeDto.VSCode, version: '3.9.1' },
-  { type: DeploymentTypeDto.VSCode, version: '3.9.0' },
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_10_2,
+  },
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_9_3,
+  },
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_9_2,
+  },
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_9_1,
+  },
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_9_0,
+  },
 ];
 
 @Exclude()
@@ -54,8 +77,8 @@ export class DeploymentImageDto {
   readonly type!: DeploymentTypeDto;
 
   @Expose()
-  @ApiProperty()
-  readonly version!: string;
+  @ApiProperty({ enum: DeploymentVersionDto, type: DeploymentVersionDto })
+  readonly version!: DeploymentVersionDto;
 
   constructor(partial: Partial<DeploymentImageDto>) {
     Object.assign(this, partial);

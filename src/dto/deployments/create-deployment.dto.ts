@@ -1,5 +1,5 @@
 import { IsValidDeploymentImage } from './../../validators/is-valid-deployment-image.validator';
-import { DeploymentTypeDto } from './deployment.dto';
+import { DeploymentTypeDto, DeploymentVersionDto } from './deployment.dto';
 import { Type } from 'class-transformer';
 import {
   IsDefined,
@@ -25,8 +25,9 @@ export class CreateDeploymentImageDto {
 
   @IsString()
   @IsNotEmpty()
-  @ApiProperty()
-  readonly version!: string;
+  @IsEnum(DeploymentVersionDto)
+  @ApiProperty({ enum: DeploymentVersionDto, type: DeploymentVersionDto })
+  readonly version!: DeploymentVersionDto;
 
   constructor(partial: Partial<CreateDeploymentImageDto>) {
     Object.assign(this, partial);

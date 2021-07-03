@@ -1,3 +1,5 @@
+import { IsValidDeploymentImage } from './../../validators/is-valid-deployment-image.validator';
+import { DeploymentVersionDto, DeploymentTypeDto } from './deployment.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
@@ -9,8 +11,29 @@ import {
   IsInt,
   ValidateNested,
   IsBoolean,
+  IsEnum,
+  Validate,
 } from 'class-validator';
 
+export class UpdateDeploymentImageDto {
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(DeploymentTypeDto)
+  @ApiProperty({ enum: DeploymentTypeDto, type: DeploymentTypeDto })
+  readonly type!: DeploymentTypeDto;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(DeploymentVersionDto)
+  @ApiProperty({ enum: DeploymentVersionDto, type: DeploymentVersionDto })
+  readonly version!: DeploymentVersionDto;
+
+  constructor(partial: Partial<UpdateDeploymentImageDto>) {
+    Object.assign(this, partial);
+  }
+}
+
+// tslint:disable-next-line: max-classes-per-file
 export class UpdateDeploymentResourcesDto {
   @Min(1)
   @IsInt()
@@ -35,6 +58,13 @@ export class UpdateDeploymentPropertiesDto {
   @IsOptional()
   @ApiProperty({ required: false })
   readonly isFavorite?: boolean;
+
+  @IsOptional()
+  @ValidateNested()
+  @ApiProperty({ required: false })
+  @Type(() => UpdateDeploymentImageDto)
+  @Validate(IsValidDeploymentImage)
+  readonly image?: UpdateDeploymentImageDto;
 
   @IsOptional()
   @ValidateNested()
