@@ -1,7 +1,7 @@
 import { CreateProjectDto } from './create-project.dto';
 
 export class UpdateProjectDto extends CreateProjectDto {
-  constructor(partial: Partial<UpdateProjectDto>) {
-    super(partial);
+  constructor(obj: UpdateProjectDto) {
+    super(obj);
   }
 }

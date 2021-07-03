@@ -18,7 +18,7 @@ export class CreateUserDto {
   @ApiProperty({ minLength: 8 })
   readonly password!: string;
 
-  constructor(partial: Partial<CreateUserDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateUserDto) {
+    Object.assign(this, obj);
   }
 }

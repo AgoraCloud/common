@@ -14,8 +14,8 @@ export class UpdateUserDto {
   @ApiProperty({ minLength: 4 })
   readonly fullName!: string;
 
-  constructor(partial: Partial<UpdateUserDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateUserDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -45,7 +45,7 @@ export class AdminUpdateUserDto {
   @ApiProperty({ required: false })
   readonly isVerified?: boolean;
 
-  constructor(partial: Partial<AdminUpdateUserDto>) {
-    Object.assign(this, partial);
+  constructor(obj: AdminUpdateUserDto) {
+    Object.assign(this, obj);
   }
 }

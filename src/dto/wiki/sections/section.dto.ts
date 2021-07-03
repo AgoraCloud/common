@@ -21,8 +21,8 @@ export class WikiSectionDto extends IdWithTimestampDto {
   @Type(() => UserDto)
   readonly user!: UserDto;
 
-  constructor(partial: Partial<WikiSectionDto>) {
-    super(partial);
-    Object.assign(this, partial);
+  constructor(obj: WikiSectionDto) {
+    super(obj);
+    Object.assign(this, obj);
   }
 }

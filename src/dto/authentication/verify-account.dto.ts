@@ -6,7 +6,7 @@ export class VerifyAccountDto {
   @ApiProperty()
   readonly token!: string;
 
-  constructor(partial: Partial<VerifyAccountDto>) {
-    Object.assign(this, partial);
+  constructor(obj: VerifyAccountDto) {
+    Object.assign(this, obj);
   }
 }

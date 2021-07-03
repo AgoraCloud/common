@@ -12,7 +12,7 @@ export class ChangePasswordDto {
   @ApiProperty()
   readonly token!: string;
 
-  constructor(partial: Partial<ChangePasswordDto>) {
-    Object.assign(this, partial);
+  constructor(obj: ChangePasswordDto) {
+    Object.assign(this, obj);
   }
 }

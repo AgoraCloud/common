@@ -8,7 +8,7 @@ export class CreateWikiSectionDto {
   @ApiProperty({ minLength: 1 })
   readonly name!: string;
 
-  constructor(partial: Partial<CreateWikiSectionDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateWikiSectionDto) {
+    Object.assign(this, obj);
   }
 }

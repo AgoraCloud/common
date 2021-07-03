@@ -15,7 +15,7 @@ export class CreateProjectDto {
   @ApiProperty({ minLength: 1, required: false })
   readonly description?: string;
 
-  constructor(partial: Partial<CreateProjectDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateProjectDto) {
+    Object.assign(this, obj);
   }
 }

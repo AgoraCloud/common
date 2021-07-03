@@ -29,8 +29,8 @@ export class CreateWorkspaceResourcesDto {
   @ApiProperty({ minimum: 8, required: false })
   readonly storageCount?: number;
 
-  constructor(partial: Partial<CreateWorkspaceResourcesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateWorkspaceResourcesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -42,8 +42,8 @@ export class CreateWorkspacePropertiesDto {
   @Type(() => CreateWorkspaceResourcesDto)
   readonly resources?: CreateWorkspaceResourcesDto;
 
-  constructor(partial: Partial<CreateWorkspacePropertiesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateWorkspacePropertiesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -61,7 +61,7 @@ export class CreateWorkspaceDto {
   @Type(() => CreateWorkspacePropertiesDto)
   readonly properties?: CreateWorkspacePropertiesDto;
 
-  constructor(partial: Partial<CreateWorkspaceDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateWorkspaceDto) {
+    Object.assign(this, obj);
   }
 }

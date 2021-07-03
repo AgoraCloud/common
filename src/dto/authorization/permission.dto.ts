@@ -114,8 +114,8 @@ export class RolesAndPermissionsDto {
   @ApiProperty({ enum: ActionDto, type: [ActionDto] })
   permissions!: ActionDto[];
 
-  constructor(partial: Partial<RolesAndPermissionsDto>) {
-    Object.assign(this, partial);
+  constructor(obj: RolesAndPermissionsDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -133,8 +133,8 @@ export class PermissionDto extends RolesAndPermissionsDto {
   @Transform((value: any) => mapToJson(value))
   workspaces!: Map<string, RolesAndPermissionsDto>;
 
-  constructor(partial: Partial<PermissionDto>) {
-    super(partial);
-    Object.assign(this, partial);
+  constructor(obj: PermissionDto) {
+    super(obj);
+    Object.assign(this, obj);
   }
 }

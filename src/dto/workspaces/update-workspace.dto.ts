@@ -29,8 +29,8 @@ export class UpdateWorkspaceResourcesDto {
   @ApiProperty({ minimum: 0, required: false })
   readonly storageCount?: number;
 
-  constructor(partial: Partial<UpdateWorkspaceResourcesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateWorkspaceResourcesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -42,8 +42,8 @@ export class UpdateWorkspacePropertiesDto {
   @Type(() => UpdateWorkspaceResourcesDto)
   readonly resources?: UpdateWorkspaceResourcesDto;
 
-  constructor(partial: Partial<UpdateWorkspacePropertiesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateWorkspacePropertiesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -62,7 +62,7 @@ export class UpdateWorkspaceDto {
   @Type(() => UpdateWorkspacePropertiesDto)
   readonly properties?: UpdateWorkspacePropertiesDto;
 
-  constructor(partial: Partial<UpdateWorkspaceDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateWorkspaceDto) {
+    Object.assign(this, obj);
   }
 }

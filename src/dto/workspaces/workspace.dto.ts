@@ -17,8 +17,8 @@ export class WorkspaceResourcesDto {
   @ApiProperty({ required: false })
   readonly storageCount?: number;
 
-  constructor(partial: Partial<WorkspaceResourcesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: WorkspaceResourcesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -30,8 +30,8 @@ export class WorkspacePropertiesDto {
   @Type(() => WorkspaceResourcesDto)
   readonly resources?: WorkspaceResourcesDto;
 
-  constructor(partial: Partial<WorkspacePropertiesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: WorkspacePropertiesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -52,8 +52,8 @@ export class WorkspaceDto extends IdWithTimestampDto {
   @Type(() => UserDto)
   readonly users!: UserDto[];
 
-  constructor(partial: Partial<WorkspaceDto>) {
-    super(partial);
-    Object.assign(this, partial);
+  constructor(obj: WorkspaceDto) {
+    super(obj);
+    Object.assign(this, obj);
   }
 }

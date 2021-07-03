@@ -12,7 +12,7 @@ export class SignInDto {
   @ApiProperty({ minLength: 8 })
   readonly password!: string;
 
-  constructor(partial: Partial<SignInDto>) {
-    Object.assign(this, partial);
+  constructor(obj: SignInDto) {
+    Object.assign(this, obj);
   }
 }

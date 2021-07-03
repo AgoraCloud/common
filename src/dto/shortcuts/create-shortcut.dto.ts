@@ -14,7 +14,7 @@ export class CreateShortcutDto {
   @IsUrl({ protocols: ['http', 'https'] })
   readonly link!: string;
 
-  constructor(partial: Partial<CreateShortcutDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateShortcutDto) {
+    Object.assign(this, obj);
   }
 }

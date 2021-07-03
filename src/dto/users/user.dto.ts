@@ -12,9 +12,9 @@ export class UserDto extends IdDto {
   @ApiProperty()
   readonly email!: string;
 
-  constructor(partial: Partial<UserDto>) {
-    super(partial);
-    Object.assign(this, partial);
+  constructor(obj: UserDto) {
+    super(obj);
+    Object.assign(this, obj);
   }
 }
 
@@ -29,8 +29,8 @@ export class AdminUserDto extends UserDto {
   @ApiProperty()
   readonly isVerified!: boolean;
 
-  constructor(partial: Partial<AdminUserDto>) {
-    super(partial);
-    Object.assign(this, partial);
+  constructor(obj: AdminUserDto) {
+    super(obj);
+    Object.assign(this, obj);
   }
 }

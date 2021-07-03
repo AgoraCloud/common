@@ -6,7 +6,7 @@ export class ForgotPasswordDto {
   @ApiProperty()
   readonly email!: string;
 
-  constructor(partial: Partial<ForgotPasswordDto>) {
-    Object.assign(this, partial);
+  constructor(obj: ForgotPasswordDto) {
+    Object.assign(this, obj);
   }
 }

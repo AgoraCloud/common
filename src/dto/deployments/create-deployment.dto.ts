@@ -29,8 +29,8 @@ export class CreateDeploymentImageDto {
   @ApiProperty({ enum: DeploymentVersionDto, type: DeploymentVersionDto })
   readonly version!: DeploymentVersionDto;
 
-  constructor(partial: Partial<CreateDeploymentImageDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateDeploymentImageDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -52,8 +52,8 @@ export class CreateDeploymentResourcesDto {
   @ApiProperty({ minimum: 8, required: false })
   readonly storageCount?: number;
 
-  constructor(partial: Partial<CreateDeploymentResourcesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateDeploymentResourcesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -83,8 +83,8 @@ export class CreateDeploymentPropertiesDto {
   @ApiProperty({ minLength: 8 })
   sudoPassword!: string;
 
-  constructor(partial: Partial<CreateDeploymentPropertiesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateDeploymentPropertiesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -102,7 +102,7 @@ export class CreateDeploymentDto {
   @Type(() => CreateDeploymentPropertiesDto)
   readonly properties!: CreateDeploymentPropertiesDto;
 
-  constructor(partial: Partial<CreateDeploymentDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateDeploymentDto) {
+    Object.assign(this, obj);
   }
 }

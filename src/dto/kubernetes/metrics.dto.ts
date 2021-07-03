@@ -15,7 +15,7 @@ export class MetricsDto {
   @ApiProperty({ required: false })
   readonly storage?: number;
 
-  constructor(partial: Partial<MetricsDto>) {
-    Object.assign(this, partial);
+  constructor(obj: MetricsDto) {
+    Object.assign(this, obj);
   }
 }

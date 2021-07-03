@@ -28,8 +28,8 @@ export class UpdateDeploymentImageDto {
   @ApiProperty({ enum: DeploymentVersionDto, type: DeploymentVersionDto })
   readonly version!: DeploymentVersionDto;
 
-  constructor(partial: Partial<UpdateDeploymentImageDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateDeploymentImageDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -47,8 +47,8 @@ export class UpdateDeploymentResourcesDto {
   @ApiProperty({ minimum: 2, required: false })
   readonly memoryCount?: number;
 
-  constructor(partial: Partial<UpdateDeploymentResourcesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateDeploymentResourcesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -72,8 +72,8 @@ export class UpdateDeploymentPropertiesDto {
   @Type(() => UpdateDeploymentResourcesDto)
   readonly resources?: UpdateDeploymentResourcesDto;
 
-  constructor(partial: Partial<UpdateDeploymentPropertiesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateDeploymentPropertiesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -92,7 +92,7 @@ export class UpdateDeploymentDto {
   @Type(() => UpdateDeploymentPropertiesDto)
   readonly properties?: UpdateDeploymentPropertiesDto;
 
-  constructor(partial: Partial<UpdateDeploymentDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateDeploymentDto) {
+    Object.assign(this, obj);
   }
 }

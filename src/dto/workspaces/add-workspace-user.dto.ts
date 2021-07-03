@@ -6,7 +6,7 @@ export class AddWorkspaceUserDto {
   @ApiProperty()
   readonly email!: string;
 
-  constructor(partial: Partial<AddWorkspaceUserDto>) {
-    Object.assign(this, partial);
+  constructor(obj: AddWorkspaceUserDto) {
+    Object.assign(this, obj);
   }
 }

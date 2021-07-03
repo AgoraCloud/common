@@ -17,8 +17,8 @@ export class UpdateProjectTaskLaneDto {
   @ApiProperty({ required: false })
   readonly id?: string;
 
-  constructor(partial: Partial<UpdateProjectTaskLaneDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateProjectTaskLaneDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -44,7 +44,7 @@ export class UpdateProjectTaskDto {
   @Type(() => UpdateProjectTaskLaneDto)
   readonly lane?: UpdateProjectTaskLaneDto;
 
-  constructor(partial: Partial<UpdateProjectTaskDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateProjectTaskDto) {
+    Object.assign(this, obj);
   }
 }

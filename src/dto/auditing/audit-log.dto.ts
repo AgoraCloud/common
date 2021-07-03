@@ -73,7 +73,7 @@ export class AuditLogDto {
   @Type(() => WorkspaceDto)
   workspace?: WorkspaceDto;
 
-  constructor(partial: Partial<AuditLogDto>) {
-    Object.assign(this, partial);
+  constructor(obj: AuditLogDto) {
+    Object.assign(this, obj);
   }
 }

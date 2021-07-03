@@ -22,7 +22,7 @@ export class UpdateUserPermissionsDto {
   @IsIn(WORKSPACE_ACTIONS_DTO, { each: true })
   permissions!: ActionDto[];
 
-  constructor(partial: Partial<UpdateUserPermissionsDto>) {
-    Object.assign(this, partial);
+  constructor(obj: UpdateUserPermissionsDto) {
+    Object.assign(this, obj);
   }
 }

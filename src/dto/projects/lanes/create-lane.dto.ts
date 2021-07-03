@@ -8,7 +8,7 @@ export class CreateProjectLaneDto {
   @ApiProperty({ minLength: 1 })
   readonly name!: string;
 
-  constructor(partial: Partial<CreateProjectLaneDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateProjectLaneDto) {
+    Object.assign(this, obj);
   }
 }

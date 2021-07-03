@@ -64,8 +64,8 @@ export class DeploymentResourcesDto {
   @ApiProperty({ required: false })
   readonly storageCount?: number;
 
-  constructor(partial: Partial<DeploymentResourcesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: DeploymentResourcesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -80,8 +80,8 @@ export class DeploymentImageDto {
   @ApiProperty({ enum: DeploymentVersionDto, type: DeploymentVersionDto })
   readonly version!: DeploymentVersionDto;
 
-  constructor(partial: Partial<DeploymentImageDto>) {
-    Object.assign(this, partial);
+  constructor(obj: DeploymentImageDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -102,8 +102,8 @@ export class DeploymentPropertiesDto {
   @Type(() => DeploymentResourcesDto)
   readonly resources!: DeploymentResourcesDto;
 
-  constructor(partial: Partial<DeploymentPropertiesDto>) {
-    Object.assign(this, partial);
+  constructor(obj: DeploymentPropertiesDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -137,8 +137,8 @@ export class DeploymentDto extends IdWithTimestampDto {
   @Type(() => UserDto)
   readonly user!: UserDto;
 
-  constructor(partial: Partial<DeploymentDto>) {
-    super(partial);
-    Object.assign(this, partial);
+  constructor(obj: DeploymentDto) {
+    super(obj);
+    Object.assign(this, obj);
   }
 }

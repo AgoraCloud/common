@@ -10,8 +10,8 @@ class IdDto {
   @Expose({ name: '_id' })
   readonly id!: string;
 
-  constructor(partial: Partial<IdDto>) {
-    Object.assign(this, partial);
+  constructor(obj: IdDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -33,8 +33,8 @@ class IdWithTimestampDto implements IdDto {
   @ApiProperty()
   readonly updatedAt!: Date;
 
-  constructor(partial: Partial<IdWithTimestampDto>) {
-    Object.assign(this, partial);
+  constructor(obj: IdWithTimestampDto) {
+    Object.assign(this, obj);
   }
 }
 
@@ -57,8 +57,8 @@ class ExceptionDto {
   @ApiProperty()
   error!: string;
 
-  constructor(partial: Partial<ExceptionDto>) {
-    Object.assign(this, partial);
+  constructor(obj: ExceptionDto) {
+    Object.assign(this, obj);
   }
 }
 

@@ -13,7 +13,7 @@ export class CreateWikiPageDto {
   @ApiProperty()
   readonly body!: string;
 
-  constructor(partial: Partial<CreateWikiPageDto>) {
-    Object.assign(this, partial);
+  constructor(obj: CreateWikiPageDto) {
+    Object.assign(this, obj);
   }
 }

@@ -24,8 +24,8 @@ export class ShortcutDto extends IdWithTimestampDto {
   @Type(() => WorkspaceDto)
   readonly workspace!: WorkspaceDto;
 
-  constructor(partial: Partial<ShortcutDto>) {
-    super(partial);
-    Object.assign(this, partial);
+  constructor(obj: ShortcutDto) {
+    super(obj);
+    Object.assign(this, obj);
   }
 }
