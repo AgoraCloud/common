@@ -16,6 +16,7 @@ export enum DeploymentStatusDto {
 
 export enum DeploymentTypeDto {
   VSCode = 'VSCODE',
+  Ubuntu = 'UBUNTU',
 }
 
 export enum DeploymentVersionDto {
@@ -24,6 +25,7 @@ export enum DeploymentVersionDto {
   VSCode_3_9_2 = '3.9.2',
   VSCode_3_9_1 = '3.9.1',
   VSCode_3_9_0 = '3.9.0',
+  Ubuntu_37fd85aa = '37fd85aa',
 }
 
 export const DEPLOYMENT_IMAGES_DTO: DeploymentImageDto[] = [
@@ -47,6 +49,11 @@ export const DEPLOYMENT_IMAGES_DTO: DeploymentImageDto[] = [
   {
     type: DeploymentTypeDto.VSCode,
     version: DeploymentVersionDto.VSCode_3_9_0,
+  },
+  // Ubuntu Deployments
+  {
+    type: DeploymentTypeDto.Ubuntu,
+    version: DeploymentVersionDto.Ubuntu_37fd85aa,
   },
 ];
 
