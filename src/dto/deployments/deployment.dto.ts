@@ -20,6 +20,7 @@ export enum DeploymentTypeDto {
 }
 
 export enum DeploymentVersionDto {
+  VSCode_3_11_0 = '3.11.0',
   VSCode_3_10_2 = '3.10.2',
   VSCode_3_9_3 = '3.9.3',
   VSCode_3_9_2 = '3.9.2',
@@ -30,6 +31,10 @@ export enum DeploymentVersionDto {
 
 export const DEPLOYMENT_IMAGES_DTO: DeploymentImageDto[] = [
   // VSCode Deployments
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_11_0,
+  },
   {
     type: DeploymentTypeDto.VSCode,
     version: DeploymentVersionDto.VSCode_3_10_2,
@@ -98,6 +103,10 @@ export class DeploymentPropertiesDto {
   @Expose()
   @ApiProperty({ required: false })
   readonly isFavorite?: boolean;
+
+  @Expose()
+  @ApiProperty()
+  readonly proxyUrl!: string;
 
   @Expose()
   @ApiProperty()
