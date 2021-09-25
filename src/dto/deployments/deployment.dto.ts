@@ -20,17 +20,28 @@ export enum DeploymentTypeDto {
 }
 
 export enum DeploymentVersionDto {
+  VSCode_3_12_0 = '3.12.0',
+  VSCode_3_11_1 = '3.11.1',
   VSCode_3_11_0 = '3.11.0',
   VSCode_3_10_2 = '3.10.2',
   VSCode_3_9_3 = '3.9.3',
   VSCode_3_9_2 = '3.9.2',
   VSCode_3_9_1 = '3.9.1',
   VSCode_3_9_0 = '3.9.0',
+  Ubuntu_814b4f04 = '814b4f04',
   Ubuntu_37fd85aa = '37fd85aa',
 }
 
 export const DEPLOYMENT_IMAGES_DTO: DeploymentImageDto[] = [
   // VSCode Deployments
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_12_0,
+  },
+  {
+    type: DeploymentTypeDto.VSCode,
+    version: DeploymentVersionDto.VSCode_3_11_1,
+  },
   {
     type: DeploymentTypeDto.VSCode,
     version: DeploymentVersionDto.VSCode_3_11_0,
@@ -56,6 +67,10 @@ export const DEPLOYMENT_IMAGES_DTO: DeploymentImageDto[] = [
     version: DeploymentVersionDto.VSCode_3_9_0,
   },
   // Ubuntu Deployments
+  {
+    type: DeploymentTypeDto.Ubuntu,
+    version: DeploymentVersionDto.Ubuntu_814b4f04,
+  },
   {
     type: DeploymentTypeDto.Ubuntu,
     version: DeploymentVersionDto.Ubuntu_37fd85aa,
