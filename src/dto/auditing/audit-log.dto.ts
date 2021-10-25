@@ -17,6 +17,8 @@ export enum AuditActionDto {
   ReadUsers = 'READ_USERS',
   AddUser = 'ADD_USER',
   RemoveUser = 'REMOVE_USER',
+  TurnOn = 'TURN_ON',
+  TurnOff = 'TURN_OFF',
 }
 
 export enum AuditResourceDto {

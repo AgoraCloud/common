@@ -1,4 +1,8 @@
-import { DeploymentTypeDto, DeploymentVersionDto } from './deployment.dto';
+import {
+  DeploymentTypeDto,
+  DeploymentVersionDto,
+  DeploymentScalingMethodDto,
+} from './deployment.dto';
 
 export enum DeploymentTypeLabelDto {
   VSCode = 'VSCode',
@@ -16,6 +20,11 @@ export enum DeploymentVersionLabelDto {
   VSCode_3_9_0 = 'v3.9.0',
   Ubuntu_814b4f04 = 'v1.1.0',
   Ubuntu_37fd85aa = 'v1.0.0',
+}
+
+export enum DeploymentScalingMethodLabelDto {
+  AlwaysOn = 'Always On',
+  OnDemand = 'On Demand',
 }
 
 export const DEPLOYMENT_TYPE_LABEL_DTO_MAP: Record<
@@ -40,6 +49,14 @@ export const DEPLOYMENT_VERSION_LABEL_DTO_MAP: Record<
   '3.9.0': DeploymentVersionLabelDto.VSCode_3_9_0,
   '814b4f04': DeploymentVersionLabelDto.Ubuntu_814b4f04,
   '37fd85aa': DeploymentVersionLabelDto.Ubuntu_37fd85aa,
+};
+
+export const DEPLOYMENT_SCALING_METHOD_LABEL_DTO_MAP: Record<
+  DeploymentScalingMethodDto,
+  DeploymentScalingMethodLabelDto
+> = {
+  ALWAYS_ON: DeploymentScalingMethodLabelDto.AlwaysOn,
+  ON_DEMAND: DeploymentScalingMethodLabelDto.OnDemand,
 };
 
 /**
@@ -67,5 +84,16 @@ export class DeploymentLabelingUtil {
     deploymentTypeDto: DeploymentTypeDto,
   ): DeploymentTypeLabelDto {
     return DEPLOYMENT_TYPE_LABEL_DTO_MAP[deploymentTypeDto];
+  }
+
+  /**
+   * Generates a user-friendly deployment scaling method label
+   * @param deploymentScalingMethodDto the deployment scaling method
+   * @returns the deployment scaling method label
+   */
+  static generateScalingMethodLabel(
+    deploymentScalingMethodDto: DeploymentScalingMethodDto,
+  ): DeploymentScalingMethodLabelDto {
+    return DEPLOYMENT_SCALING_METHOD_LABEL_DTO_MAP[deploymentScalingMethodDto];
   }
 }

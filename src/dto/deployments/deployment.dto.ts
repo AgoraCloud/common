@@ -4,6 +4,11 @@ import { Exclude, Expose, Type } from 'class-transformer';
 import { WorkspaceDto } from '../workspaces';
 import { IdWithTimestampDto } from '../base.dto';
 
+export enum DeploymentScalingMethodDto {
+  AlwaysOn = 'ALWAYS_ON',
+  OnDemand = 'ON_DEMAND',
+}
+
 export enum DeploymentStatusDto {
   Pending = 'PENDING',
   Creating = 'CREATING',
@@ -11,6 +16,7 @@ export enum DeploymentStatusDto {
   Updating = 'UPDATING',
   Deleting = 'DELETING',
   Failed = 'FAILED',
+  Stopped = 'STOPPED',
   Unknown = 'UNKNOWN',
 }
 
@@ -122,6 +128,13 @@ export class DeploymentPropertiesDto {
   @Expose()
   @ApiProperty()
   readonly proxyUrl!: string;
+
+  @Expose()
+  @ApiProperty({
+    enum: DeploymentScalingMethodDto,
+    type: DeploymentScalingMethodDto,
+  })
+  readonly scalingMethod!: DeploymentScalingMethodDto;
 
   @Expose()
   @ApiProperty()

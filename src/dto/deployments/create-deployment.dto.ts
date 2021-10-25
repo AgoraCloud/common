@@ -1,5 +1,9 @@
 import { IsValidDeploymentImage } from './../../validators/is-valid-deployment-image.validator';
-import { DeploymentTypeDto, DeploymentVersionDto } from './deployment.dto';
+import {
+  DeploymentTypeDto,
+  DeploymentVersionDto,
+  DeploymentScalingMethodDto,
+} from './deployment.dto';
 import { Type } from 'class-transformer';
 import {
   IsDefined,
@@ -63,6 +67,15 @@ export class CreateDeploymentPropertiesDto {
   @IsOptional()
   @ApiProperty()
   readonly isFavorite?: boolean;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum(DeploymentScalingMethodDto)
+  @ApiProperty({
+    enum: DeploymentScalingMethodDto,
+    type: DeploymentScalingMethodDto,
+  })
+  readonly scalingMethod!: DeploymentScalingMethodDto;
 
   @IsDefined()
   @ApiProperty()
