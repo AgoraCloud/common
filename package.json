@@ -1,6 +1,6 @@
 {
   "name": "@agoracloud/common",
-  "version": "1.3",
+  "version": "1.3.0",
   "description": "An NPM package that houses shared assets between AgoraCloud's server and UI",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
