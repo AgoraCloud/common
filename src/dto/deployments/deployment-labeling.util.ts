@@ -2,6 +2,7 @@ import {
   DeploymentTypeDto,
   DeploymentVersionDto,
   DeploymentScalingMethodDto,
+  DeploymentStatusDto,
 } from './deployment.dto';
 
 export enum DeploymentTypeLabelDto {
@@ -25,6 +26,17 @@ export enum DeploymentVersionLabelDto {
 export enum DeploymentScalingMethodLabelDto {
   AlwaysOn = 'Always On',
   OnDemand = 'On Demand',
+}
+
+export enum DeploymentStatusLabelDto {
+  Pending = 'Pending',
+  Creating = 'Creating',
+  Running = 'Running',
+  Updating = 'Updating',
+  Deleting = 'Deleting',
+  Failed = 'Failed',
+  Stopped = 'Stopped',
+  Unknown = 'Unknown',
 }
 
 export const DEPLOYMENT_TYPE_LABEL_DTO_MAP: Record<
@@ -57,6 +69,20 @@ export const DEPLOYMENT_SCALING_METHOD_LABEL_DTO_MAP: Record<
 > = {
   ALWAYS_ON: DeploymentScalingMethodLabelDto.AlwaysOn,
   ON_DEMAND: DeploymentScalingMethodLabelDto.OnDemand,
+};
+
+export const DEPLOYMENT_STATUS_LABEL_DTO_MAP: Record<
+  DeploymentStatusDto,
+  DeploymentStatusLabelDto
+> = {
+  PENDING: DeploymentStatusLabelDto.Pending,
+  CREATING: DeploymentStatusLabelDto.Creating,
+  RUNNING: DeploymentStatusLabelDto.Running,
+  UPDATING: DeploymentStatusLabelDto.Updating,
+  DELETING: DeploymentStatusLabelDto.Deleting,
+  FAILED: DeploymentStatusLabelDto.Failed,
+  STOPPED: DeploymentStatusLabelDto.Stopped,
+  UNKNOWN: DeploymentStatusLabelDto.Unknown,
 };
 
 /**
@@ -95,5 +121,16 @@ export class DeploymentLabelingUtil {
     deploymentScalingMethodDto: DeploymentScalingMethodDto,
   ): DeploymentScalingMethodLabelDto {
     return DEPLOYMENT_SCALING_METHOD_LABEL_DTO_MAP[deploymentScalingMethodDto];
+  }
+
+  /**
+   * Generates a user-friendly deployment status label
+   * @param deploymentStatusDto the deployment status
+   * @returns the deployment status label
+   */
+  static generateStatusLabel(
+    deploymentStatusDto: DeploymentStatusDto,
+  ): DeploymentStatusLabelDto {
+    return DEPLOYMENT_STATUS_LABEL_DTO_MAP[deploymentStatusDto];
   }
 }
